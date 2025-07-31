@@ -9,25 +9,26 @@
 </head>
 <body>
     <header>
-    <nav>
-        <div class="logo">
-            <h1>Aura Tech</h1>
-        </div>
-        <button class="menu-toggle" aria-label="Abrir Menu">
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-            <span class="hamburger"></span>
-        </button>
-        <ul class="nav-links">
-            <li><a href="index.html">Início</a></li>
-            <li><a href="artigos.html">Artigos</a></li>
-            <li><a href="ia.html">Nossa IA</a></li>
-            <li><a href="auracoin.html">AuraCoin</a></li>
-            <li><a href="sobre.html">Sobre Nós</a></li>
-            <li><a href="contato.html">Contato</a></li>
-        </ul>
-    </nav>
-</header>
+        <nav>
+            <div class="logo">
+                <h1>Aura Tech</h1>
+            </div>
+            <button class="menu-toggle" aria-label="Abrir Menu">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="artigos.html">Artigos</a></li>
+                <li><a href="ia.html">Nossa IA</a></li>
+                <li><a href="auracoin.html">AuraCoin</a></li>
+                <li><a href="sobre.html">Sobre Nós</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
         <section id="contact-hero" class="hero-subpage">
             <div class="hero-content">
@@ -40,7 +41,8 @@
             <div class="container">
                 <h2>Envie-nos uma Mensagem</h2>
                 <form name="contact" method="POST" data-netlify="true" class="contact-form" netlify>
-    
+                     <input type="hidden" name="form-name" value="contact" />
+    <input type="hidden" name="_next" value="/success.html" />
                     <div class="form-group">
                         <label for="name">Seu Nome:</label>
                         <input type="text" id="name" name="name" required placeholder="Seu nome completo">
@@ -59,7 +61,6 @@
                     </div>
                     <button type="submit" class="btn primary">Enviar Mensagem</button>
                 </form>
-                <div id="form-status" class="form-status-message"></div>
             </div>
         </section>
 
@@ -69,14 +70,13 @@
                 <div class="contact-info-grid">
                     <div class="info-item">
                         <h3><span class="icon">📧</span> E-mail</h3>
-                        <p><a href="mailto:contato@auratech.com">contato-auratech@gmail.com</a></p>
+                        <p><a href="mailto:contato.auratech@gmail.com">contato.auratech@gmail.com</a></p>
                     </div>
                     <div class="info-item">
                         <h3><span class="icon">🌐</span> Redes Sociais</h3>
                         <p>Conecte-se conosco para as últimas notícias e atualizações.</p>
                         <div class="social-links-inline">
                             <a href="#" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
-                            
                         </div>
                     </div>
                 </div>
@@ -88,9 +88,11 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Aura Technology. Todos os direitos reservados.</p>
+            
+                
         </div>
     </footer>
 
-   
+    <script src="js/script.js"></script>
 </body>
-</htm
+</html>
