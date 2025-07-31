@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos | Aura Technology - Insights e Análises Tecnológicas</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="logo">
+            <h1>Aura Tech</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir Menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="artigos.html">Artigos</a></li>
+            <li><a href="ia.html">Nossa IA</a></li>
+            <li><a href="auracoin.html">AuraCoin</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <section id="articles-hero" class="hero-subpage">
+            <div class="hero-content">
+                <h2>Explore Nosso Acervo de Conhecimento</h2>
+                <p>Artigos acadêmicos e análises aprofundadas sobre os avanços mais recentes em inteligência artificial, blockchain, computação quântica e muito mais.</p>
+            </div>
+        </section>
+
+        <section id="article-list" class="content-section">
+            <div class="container">
+                <h2>Todos os Artigos</h2>
+                <div class="filters">
+                    <label for="category-filter">Filtrar por Categoria:</label>
+                    <select id="category-filter">
+                        <option value="all">Todas</option>
+                        <option value="ia">Inteligência Artificial</option>
+                        <option value="blockchain">Blockchain</option>
+                        <option value="quantum">Computação Quântica</option>
+                        <option value="neurotech">Neurotecnologia</option>
+                        <option value="cybersecurity">Cibersegurança</option>
+                        <option value="ethics">Ética da IA</option>
+                        <option value="futuretech">Tecnologias Futuras</option>
+                    </select>
+                </div>
+
+                <div class="articles-grid" id="articles-container">
+                    <div class="article-card" data-category="ia quantum futuretech">
+                        <h3>A Convergência de IA e Computação Quântica: Otimização Algorítmica</h3>
+                        <p>Descubra como a sinergia entre IA e quântica pode desbloquear otimizações algorítmicas sem precedentes e acelerar a inovação em diversos campos.</p>
+                        <div class="article-meta">
+                            <span>Categoria: IA, Computação Quântica</span> | <span>Data: 20 de Julho, 2025</span>
+                        </div>
+                        <a href="artigo-ia-quantica.html" class="read-more">Ler Mais <span class="arrow">→</span></a>
+                    </div>
+
+                    <div class="article-card" data-category="blockchain governance futuretech">
+                        <h3>Blockchain e a Nova Era da Governança Descentralizada</h3>
+                        <p>Explore o potencial disruptivo da blockchain para além do mercado financeiro, transformando a transparência, a segurança de dados e os sistemas globais.</p>
+                        <div class="article-meta">
+                            <span>Categoria: Blockchain, Governança</span> | <span>Data: 15 de Julho, 2025</span>
+                        </div>
+                        <a href="artigo-blockchain.html" class="read-more">Ler Mais <span class="arrow">→</span></a>
+                    </div>
+
+                    <div class="article-card" data-category="neurotech ia ethics futuretech">
+                        <h3>Neurotecnologia e Interfaces Cérebro-Máquina (ICMs)</h3>
+                        <p>Uma análise profunda dos avanços e das implicações éticas das tecnologias que conectam mentes e máquinas, redefinindo a interação humana.</p>
+                        <div class="article-meta">
+                            <span>Categoria: Neurotecnologia, Bioética, IA</span> | <span>Data: 10 de Julho, 2025</span>
+                        </div>
+                        <a href="artigo-neurotecnologia.html" class="read-more">Ler Mais <span class="arrow">→</span></a>
+                    </div>
+
+                    <div class="article-card" data-category="ia cybersecurity">
+                        <h3>Inteligência Artificial na Cibersegurança: Fortalecendo Defesas</h3>
+                        <p>Descubra como a IA está revolucionando as estratégias de defesa cibernética, automatizando respostas e enfrentando as ameaças mais sofisticadas.</p>
+                        <div class="article-meta">
+                            <span>Categoria: Cibersegurança, Inteligência Artificial</span> | <span>Data: 25 de Julho, 2025</span>
+                        </div>
+                        <a href="artigo-ciberseguranca-ia.html" class="read-more">Ler Mais <span class="arrow">→</span></a>
+                    </div>
+
+                    <div class="article-card" data-category="ia ethics governance futuretech">
+                        <h3>Ética na Inteligência Artificial: Construindo um Futuro Responsável</h3>
+                        <p>Navegue pelos dilemas éticos da IA, compreenda a importância da transparência e da justiça para construir um futuro digital seguro e benéfico para todos.</p>
+                        <div class="article-meta">
+                            <span>Categoria: IA, Ética, Governança</span> | <span>Data: 05 de Agosto, 2025</span>
+                        </div>
+                        <a href="artigo-etica-ia-futuro.html" class="read-more">Ler Mais <span class="arrow">→</span></a>
+                    </div>
+
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aura Technology. Todos os direitos reservados.</p>
+            
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const filter = document.getElementById('category-filter');
+            const articlesContainer = document.getElementById('articles-container');
+            const articleCards = articlesContainer.querySelectorAll('.article-card');
+
+            filter.addEventListener('change', (event) => {
+                const selectedCategory = event.target.value;
+
+                articleCards.forEach(card => {
+                    const categories = card.dataset.category.split(' ');
+                    if (selectedCategory === 'all' || categories.includes(selectedCategory)) {
+                        card.style.display = 'flex'; // Use 'flex' para manter o layout de card
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

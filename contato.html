@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Aura Technology - Fale Conosco</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="logo">
+            <h1>Aura Tech</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir Menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="artigos.html">Artigos</a></li>
+            <li><a href="ia.html">Nossa IA</a></li>
+            <li><a href="auracoin.html">AuraCoin</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+    <main>
+        <section id="contact-hero" class="hero-subpage">
+            <div class="hero-content">
+                <h2>Conecte-se Conosco</h2>
+                <p>Tire suas dúvidas, envie sugestões ou explore oportunidades de parceria com a Aura Technology.</p>
+            </div>
+        </section>
+
+        <section id="contact-form-section" class="content-section">
+            <div class="container">
+                <h2>Envie-nos uma Mensagem</h2>
+                <form id="contact-form" class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Seu Nome:</label>
+                        <input type="text" id="name" name="name" required placeholder="Seu nome completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu E-mail:</label>
+                        <input type="email" id="email" name="email" required placeholder="seu.email@exemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto:</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Assunto da mensagem">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem:</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Escreva sua mensagem aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Enviar Mensagem</button>
+                </form>
+                <div id="form-status" class="form-status-message"></div>
+            </div>
+        </section>
+
+        <section id="contact-info" class="content-section bg-dark">
+            <div class="container">
+                <h2>Outras Formas de Contato</h2>
+                <div class="contact-info-grid">
+                    <div class="info-item">
+                        <h3><span class="icon">📧</span> E-mail</h3>
+                        <p><a href="mailto:contato@auratech.com">contato-auratech@gmail.com</a></p>
+                    </div>
+                    <div class="info-item">
+                        <h3><span class="icon">🌐</span> Redes Sociais</h3>
+                        <p>Conecte-se conosco para as últimas notícias e atualizações.</p>
+                        <div class="social-links-inline">
+                            <a href="#" target="_blank"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <p class="strong-call">Estamos ansiosos para ouvir de você e construir o futuro da tecnologia juntos!</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aura Technology. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const contactForm = document.getElementById('contact-form');
+            const formStatus = document.getElementById('form-status');
+
+            contactForm.addEventListener('submit', (event) => {
+                event.preventDefault(); // Impede o envio padrão do formulário
+
+                // Simples validação
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const message = document.getElementById('message').value;
+
+                if (name === "" || email === "" || message === "") {
+                    formStatus.textContent = "Por favor, preencha todos os campos obrigatórios.";
+                    formStatus.style.color = "red";
+                } else {
+                    formStatus.textContent = "Mensagem enviada com sucesso! Em breve entraremos em contato.";
+                    formStatus.style.color = "var(--color-purple)";
+                    contactForm.reset(); // Limpa o formulário
+                    // Aqui você adicionaria a lógica para enviar o formulário para um backend
+                    // Ex: fetch('/send-email', { method: 'POST', body: new FormData(contactForm) })
+                }
+            });
+        });
+    </script>
+</body>
+</html>

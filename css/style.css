@@ -1,0 +1,906 @@
+/* Importação de fonte - Exemplo com Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+    --color-black: #000000;
+    --color-dark-gray: #1a1a1a; /* Um preto um pouco menos intenso para fundos secundários */
+    --color-light-gray: #e0e0e0;
+    --color-white: #FFFFFF;
+    --color-purple: #8A2BE2; /* Azul Violeta (Wisteria) */
+    --color-blue: #00BFFF; /* Azul Céu Profundo */
+    --color-accent-purple-dark: #6A1AAB; /* Roxo mais escuro para hover */
+    --color-accent-blue-dark: #1E90FF; /* Azul mais escuro para hover */
+    --color-text-light: #C0C0C0; /* Cor de texto mais clara */
+}
+
+/* Reset Básico e Estilos Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.7;
+    background-color: var(--color-black);
+    color: var(--color-text-light);
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2.2rem; }
+h3 { font-size: 1.8rem; }
+h4 { font-size: 1.4rem; }
+
+a {
+    color: var(--color-purple);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--color-blue);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Botões */
+.btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px; /* Borda mais arredondada */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+.btn.primary {
+    background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+    color: var(--color-white);
+    box-shadow: 0 5px 15px rgba(138, 43, 226, 0.3);
+}
+
+.btn.primary:hover {
+    background: linear-gradient(45deg, var(--color-blue), var(--color-purple));
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.4);
+}
+
+.btn.secondary {
+    background-color: transparent;
+    color: var(--color-blue);
+    border: 2px solid var(--color-blue);
+}
+
+.btn.secondary:hover {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.2);
+}
+
+.btn.view-all {
+    background-color: var(--color-blue);
+    color: var(--color-white);
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn.view-all:hover {
+    background-color: var(--color-accent-blue-dark);
+    transform: translateY(-3px);
+}
+
+/* Seções de Conteúdo Padrão */
+.content-section {
+    padding: 5rem 0;
+}
+
+.content-section.bg-dark {
+    background-color: var(--color-dark-gray);
+}
+
+.content-section h2, .content-section h3 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.content-section h2::after, .content-section h3::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 4px;
+    background: var(--color-purple);
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    border-radius: 2px;
+}
+
+.content-section p {
+    margin-bottom: 1.5rem; /* Ajusta espaçamento de parágrafos */
+    font-size: 1.05rem; /* Um pouco maior para leitura */
+}
+
+.content-section ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light);
+}
+
+.content-section ul li {
+    margin-bottom: 0.8rem;
+    font-size: 1.05rem;
+}
+
+/* Header & Navigation (Desktop Primeiro) */
+header {
+    background-color: var(--color-black);
+    padding: 1rem 0; /* Padding padrão para desktop */
+    border-bottom: 1px solid rgba(138, 43, 226, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative; /* Necessário para posicionar o menu mobile */
+}
+
+.logo h1 {
+    font-size: 2rem;
+    color: var(--color-purple);
+    background: linear-gradient(45deg, var(--color-purple), var(--color-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    z-index: 1001; /* Garante que o logo esteja acima do menu mobile */
+}
+
+/* Links de Navegação (Desktop) */
+.nav-links {
+    list-style: none;
+    display: flex; /* Visível no desktop */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 2.5rem;
+}
+
+.nav-links li a {
+    color: var(--color-light-gray);
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-purple), var(--color-blue));
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+/* Menu Hambúrguer (Escondido por padrão no desktop) */
+.menu-toggle {
+    display: none; /* Esconde o botão hambúrguer no desktop */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001; /* Garante que o botão esteja acima do menu mobile */
+}
+
+.hamburger {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--color-purple);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+
+/* Hero Section (Home) */
+#hero {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('../images/hero-bg.webp') no-repeat center center/cover; /* Substitua pela sua imagem */
+    min-height: 90vh; /* Use min-height em vez de height fixo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 8rem 2rem 0; /* padding-top de 8rem, laterais de 2rem, inferior de 0 */
+    box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
+}
+
+.hero-content {
+    max-width: 900px;
+    animation: fadeInScale 1.5s ease-out;
+}
+
+.hero-content h2 {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-blue);
+    line-height: 1.1;
+    text-shadow: 0 0 15px rgba(0, 191, 255, 0.4);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+    color: var(--color-light-gray);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+/* Hero Subpages (Para as outras páginas) */
+.hero-subpage {
+    background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)), url('../images/hero-subpage-bg.webp') no-repeat center center/cover; /* Substitua pela sua imagem */
+    min-height: 40vh; /* Altura padrão para desktop */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+    border-bottom: 2px solid var(--color-purple);
+}
+
+.hero-subpage .hero-content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-purple);
+    text-shadow: 0 0 10px rgba(138, 43, 226, 0.3);
+}
+
+.hero-subpage .hero-content p {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Seções de Features/Grid */
+.feature-grid, .feature-grid-2-col, .mission-vision-grid {
+    display: grid;
+    gap: 2.5rem;
+    margin-top: 3rem;
+}
+
+.feature-grid { /* Usado na Home e Sobre Nós */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.feature-grid-2-col { /* Usado em IA, AuraCoin, Contato */
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.feature-item, .mv-item, .info-item {
+    background-color: var(--color-black);
+    padding: 2.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.feature-item:hover, .mv-item:hover, .info-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-blue);
+    box-shadow: 0 12px 25px rgba(0, 191, 255, 0.2);
+}
+
+.feature-item h3, .mv-item h3, .info-item h3 {
+    font-size: 1.6rem;
+    color: var(--color-blue);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.feature-item .icon, .info-item .icon, .mv-item .icon {
+    font-size: 2rem;
+    color: var(--color-purple);
+    margin-right: 0.5rem; /* Para ícones dentro do texto */
+}
+
+.mv-item .icon { /* Ícones maiores para Missão/Visão */
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-item p, .mv-item p, .info-item p {
+    font-size: 1.05rem;
+    color: var(--color-text-light);
+}
+
+/* Artigos Grid */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.article-card {
+    background-color: var(--color-dark-gray);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: left;
+    border: 1px solid rgba(0, 191, 255, 0.2);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Para o alinhamento do "Ler Mais" */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 191, 255, 0.3);
+}
+
+.article-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--color-purple);
+    line-height: 1.3;
+}
+
+.article-card p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+    flex-grow: 1; /* Para que ocupe o espaço e o "Ler Mais" fique no final */
+    margin-bottom: 1.5rem;
+}
+
+.article-card .read-more {
+    color: var(--color-blue);
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.article-card .read-more .arrow {
+    transition: transform 0.3s ease;
+}
+
+.article-card .read-more:hover .arrow {
+    transform: translateX(5px);
+}
+
+.article-meta {
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+/* Artigo Detalhe Page */
+.article-page {
+    line-height: 1.8;
+}
+
+.article-page h3 {
+    text-align: left;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-purple);
+    font-size: 2rem;
+}
+
+.article-page h3::after {
+    left: 0;
+    transform: translateX(0);
+}
+
+.article-page ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text-light);
+}
+
+.article-page ul li {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+/* Novo estilo para sublistas dentro de artigos */
+.article-page ul ul {
+    list-style-type: circle;
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.article-page .container {
+    max-width: 900px; /* Mais estreito para melhor leitura */
+}
+
+/* Página de Artigos - Filtros */
+.filters {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    color: var(--color-white);
+}
+
+.filters label {
+    margin-right: 1rem;
+}
+
+.filters select {
+    padding: 0.6rem 1rem;
+    border-radius: 5px;
+    border: 1px solid var(--color-purple);
+    background-color: var(--color-dark-gray);
+    color: var(--color-white);
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none; /* Remove estilo padrão do select */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%238A2BE2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%00-13.2-6.5H18.5c-4.1%200-7.9%201.5-10.9%204.5c-3%203-4.5%206.8-4.5%2010.9v109.8c0%204.1%201.5%207.9%204.5%2010.9c3%203%206.8%204.5%2010.9%204.5h255.3c4.1%200%207.9-1.5%2010.9-4.5c3-3%204.5-6.8%204.5-10.9V82.6c0-4.1-1.5-7.9-4.5-10.9z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 0.7em top 50%, 0 0;
+    background-size: 0.65em auto, 100%;
+}
+
+/* Formulário de Contato */
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto 3rem auto;
+    background-color: var(--color-dark-gray);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+    border: 1px solid rgba(0, 191, 255, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 1.1rem;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-purple);
+    background-color: var(--color-black);
+    color: var(--color-light-gray);
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: var(--color-blue);
+    box-shadow: 0 0 0 3px rgba(0, 191, 255, 0.3);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+    min-height: 120px;
+}
+
+.contact-form .btn.primary {
+    width: 100%;
+    padding: 1.2rem 0;
+    font-size: 1.2rem;
+}
+
+.form-status-message {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.contact-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.info-item h3 {
+    justify-content: center; /* Centraliza ícone e texto */
+}
+
+.social-links-inline {
+    margin-top: 1rem;
+}
+
+.social-links-inline img {
+    width: 40px;
+    height: 40px;
+    margin: 0 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links-inline img:hover {
+    transform: scale(1.1);
+}
+
+.strong-call {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-white);
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilo para Roadmap (AuraCoin) */
+.roadmap-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.step-item {
+    background-color: var(--color-black);
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(138, 43, 226, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    flex: 1 1 calc(50% - 2rem); /* 2 itens por linha em telas maiores */
+    min-width: 300px; /* Garante que não fiquem muito pequenos */
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.step-item:hover {
+    transform: translateY(-10px);
+    border-color: var(--color-blue);
+    box-shadow: 0 12px 25px rgba(0, 191, 255, 0.2);
+}
+
+.step-item h4 {
+    font-size: 1.4rem;
+    color: var(--color-purple);
+    margin-bottom: 0.8rem;
+}
+
+.step-item p {
+    font-size: 0.95rem;
+    color: var(--color-text-light);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-black);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    color: var(--color-text-light);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.social-links img {
+    width: 30px;
+    height: 30px;
+    margin: 0 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* --- Responsividade (Media Queries) --- */
+
+/* Telas muito grandes (Desktop Wide) */
+@media (min-width: 1400px) {
+    .container {
+        padding: 0 3rem;
+    }
+}
+
+/* Telas médias (Tablets e Laptops) */
+@media (max-width: 992px) {
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 2rem; }
+    h3 { font-size: 1.6rem; }
+
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    .hero-subpage .hero-content h2 {
+        font-size: 2.8rem;
+    }
+    .hero-subpage .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .feature-grid-2-col {
+        grid-template-columns: 1fr; /* Volta para 1 coluna em telas menores */
+    }
+
+    .roadmap-steps .step-item {
+        flex: 1 1 calc(100% - 2rem); /* 1 item por linha em telas médias */
+    }
+
+    .mission-vision-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Telas pequenas (Smartphones e Tablets menores) */
+@media (max-width: 768px) {
+    /* Header e Navegação Responsiva - Mobile */
+    header {
+        padding: 0.8rem 0; /* Header mais compacto */
+    }
+
+    nav {
+        flex-direction: row; /* Mantém logo e botão hambúrguer na mesma linha */
+        justify-content: space-between; /* Espaça logo e botão */
+        align-items: center;
+        padding: 0 1rem; /* Padding lateral menor */
+    }
+
+    .logo h1 {
+        font-size: 1.8rem; /* Logo menor */
+    }
+
+    .menu-toggle {
+        display: block; /* Mostra o botão hambúrguer em mobile */
+        padding: 8px; /* Padding do botão menor */
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: column; /* Itens do menu empilhados */
+        position: absolute; /* Posiciona o menu para fora da tela */
+        top: 100%; /* Abaixo do header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-dark-gray); /* Fundo para o menu aberto */
+        border-top: 1px solid var(--color-blue);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.6);
+        transform: translateY(-100%) translateX(0%); /* Inicia escondido acima */
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s ease-out, opacity 0.4s ease-out, visibility 0.4s;
+        padding: 1rem 0;
+    }
+
+    .nav-links.active {
+        transform: translateY(0%) translateX(0%); /* Move para a posição visível */
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links li {
+        margin: 0; /* Remove margens laterais */
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Separador entre itens */
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none; /* Remove separador do último item */
+    }
+
+    .nav-links li a {
+        display: block; /* Ocupa toda a largura do item */
+        padding: 0.8rem 0; /* Padding vertical dos links do menu */
+        font-size: 1.1rem; /* Fonte um pouco menor */
+        color: var(--color-white);
+    }
+
+    .nav-links li a::after {
+        display: none; /* Esconde o sublinhado ao passar o mouse em mobile */
+    }
+
+    .nav-links li a:hover {
+        background-color: rgba(138, 43, 226, 0.2); /* Fundo ao passar o mouse no item */
+    }
+
+    /* Animação do ícone Hambúrguer para 'X' */
+    .menu-toggle.active .hamburger:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .hamburger:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Ajustes gerais para telas pequenas */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.4rem; }
+
+    #hero {
+        min-height: 60vh; /* Altura do hero menor em mobile */
+        padding: 5rem 1rem 0; /* Ajusta o padding-top para mobile */
+    }
+    .hero-content h2 {
+        font-size: 2.2rem; /* Título do hero menor */
+    }
+    .hero-content p {
+        font-size: 0.95rem; /* Parágrafo do hero menor */
+        margin-bottom: 1.5rem; /* Margem menor */
+    }
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.8rem; /* Gap menor entre botões */
+    }
+    .cta-buttons .btn {
+        width: 95%; /* Botões quase em largura total */
+        padding: 0.9rem 1.5rem; /* Padding dos botões menor */
+    }
+
+    .hero-subpage {
+        min-height: 25vh; /* Altura da subpágina hero menor */
+        padding: 0 1rem;
+    }
+    .hero-subpage .hero-content h2 {
+        font-size: 2rem;
+    }
+    .hero-subpage .hero-content p {
+        font-size: 0.95rem;
+    }
+
+    .content-section {
+        padding: 3rem 0; /* Padding das seções menor */
+    }
+    .container {
+        padding: 0 1rem;
+    }
+
+    .feature-grid, .articles-grid {
+        grid-template-columns: 1fr; /* Todos os grids em 1 coluna */
+    }
+
+    .feature-item, .article-card, .mv-item, .info-item, .step-item {
+        padding: 1.5rem; /* Padding dos cards menor */
+    }
+
+    .article-page .container {
+        max-width: 95%;
+    }
+    .article-page h3 {
+        font-size: 1.6rem;
+    }
+    .article-page p, .article-page ul li {
+        font-size: 0.95rem;
+    }
+
+    .contact-form {
+        padding: 1.2rem;
+    }
+    .form-group label {
+        font-size: 0.95rem;
+    }
+    .form-group input, .form-group textarea {
+        padding: 0.7rem;
+        font-size: 0.9rem;
+    }
+    .contact-form .btn.primary {
+        font-size: 1.1rem;
+    }
+}
+
+/* Telas muito pequenas (Smartphones de 320px de largura) */
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+    nav ul li {
+        margin: 0.2rem 0.4rem;
+        font-size: 0.85rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.8rem;
+    }
+    .hero-content p {
+        font-size: 0.85rem;
+    }
+
+    .hero-subpage .hero-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .btn {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.85rem;
+    }
+
+    .content-section h2, .content-section h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-item h3, .article-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-item .icon, .info-item .icon, .mv-item .icon {
+        font-size: 1.6rem;
+    }
+
+    .social-links-inline img {
+        width: 30px;
+        height: 30px;
+    }
+}
