@@ -904,3 +904,61 @@ footer p {
         height: 30px;
     }
 }
+/* --- Estilos para a Página de Sucesso (success.html) --- */
+.success-page-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ocupa a altura total da viewport */
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--color-black); /* Garante o fundo preto */
+    color: var(--color-text-light); /* Garante a cor do texto padrão */
+}
+
+.success-page-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: var(--color-blue); /* Cor azul para o título de sucesso */
+    margin-bottom: 1rem;
+    /* Remover o ::after do h2 para este contexto específico, se desejar */
+}
+
+/* Opcional: Remover o underline do h2 nesta página, se não quiser */
+.success-page-content h2::after {
+    display: none;
+}
+
+
+.success-page-content p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.success-page-content .btn.primary {
+    margin-top: 2rem;
+    /* Os estilos do botão já são definidos globalmente, apenas a margem superior é específica */
+}
+
+/* Responsividade para a página de sucesso */
+@media (max-width: 768px) {
+    .success-page-content h2 {
+        font-size: 2rem; /* Título menor em mobile */
+    }
+    .success-page-content p {
+        font-size: 1rem; /* Parágrafo menor em mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .success-page-content h2 {
+        font-size: 1.8rem; /* Título ainda menor em telas muito pequenas */
+    }
+    .success-page-content p {
+        font-size: 0.9rem; /* Parágrafo ainda menor */
+    }
+}
