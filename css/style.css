@@ -1053,3 +1053,8 @@ footer p {
         height: 180px; /* Altura ideal para smartphones */
     }
 }
+/* Estilo para a chamada de ação extra abaixo do carrossel */
+.cta-more-articles {
+    text-align: center;
+    margin-top: 3rem;
+}
