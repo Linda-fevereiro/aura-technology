@@ -70,3 +70,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+// --- Funcionalidade do Carrossel na Página Inicial ---
+document.addEventListener('DOMContentLoaded', function() {
+    const slides = document.querySelectorAll('.carousel-slide');
+    let currentSlide = 0;
+
+    function showSlide(n) {
+        // Remove a classe 'active' de todos os slides
+        slides.forEach(slide => slide.classList.remove('active'));
+        // Adiciona a classe 'active' ao slide atual
+        slides[(n + slides.length) % slides.length].classList.add('active');
+        currentSlide = (n + slides.length) % slides.length;
+    }
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+    // Iniciar o carrossel se houver slides
+    if (slides.length > 0) {
+        showSlide(0); // Mostra o primeiro slide
+        setInterval(nextSlide, 3000); // Troca de slide a cada 5 segundos
+    }
+});

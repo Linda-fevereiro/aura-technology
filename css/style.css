@@ -904,61 +904,152 @@ footer p {
         height: 30px;
     }
 }
-/* --- Estilos para a Página de Sucesso (success.html) --- */
-.success-page-content {
+/* Estilos para os Cards de Artigo com Imagem */
+.article-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh; /* Ocupa a altura total da viewport */
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--color-black); /* Garante o fundo preto */
-    color: var(--color-text-light); /* Garante a cor do texto padrão */
+    overflow: hidden; /* Garante que a imagem com bordas arredondadas não vaze */
+    border-radius: 12px;
 }
 
-.success-page-content h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.5rem;
-    color: var(--color-blue); /* Cor azul para o título de sucesso */
-    margin-bottom: 1rem;
-    /* Remover o ::after do h2 para este contexto específico, se desejar */
+.article-card-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
 }
 
-/* Opcional: Remover o underline do h2 nesta página, se não quiser */
-.success-page-content h2::after {
+.article-card-text {
+    padding: 1.5rem;
+    flex-grow: 1; /* Ocupa o espaço restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* --- Estilos do Carrossel na Página Inicial (Otimizado) --- */
+#carousel-articles {
+    padding: 3rem 0; /* Reduzindo o padding para um visual mais compacto */
+    background-color: var(--color-black);
+}
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px; /* Arredondamento sutil */
+    box-shadow: 0 8px 20px rgba(0, 191, 255, 0.1);
+}
+
+.carousel-slide {
     display: none;
+    position: relative;
+    animation: fadeIn 1s ease-in-out;
 }
 
-
-.success-page-content p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    max-width: 600px;
-    line-height: 1.6;
+.carousel-image {
+    width: 100%;
+    height: 400px; /* Definindo uma altura fixa para telas grandes */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+    border-radius: 10px;
 }
 
-.success-page-content .btn.primary {
-    margin-top: 2rem;
-    /* Os estilos do botão já são definidos globalmente, apenas a margem superior é específica */
+.carousel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(0deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0) 100%);
+    color: var(--color-white);
+    padding: 1.5rem; /* Padding reduzido para um visual mais limpo */
+    box-sizing: border-box;
+    text-align: left;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
-/* Responsividade para a página de sucesso */
-@media (max-width: 768px) {
-    .success-page-content h2 {
-        font-size: 2rem; /* Título menor em mobile */
+.carousel-caption h3 {
+    font-size: 1.8rem; /* Tamanho da fonte mais moderado */
+    color: var(--color-blue);
+    margin-bottom: 0.4rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--color-light-gray);
+    max-width: 80%;
+}
+
+.carousel-slide.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
     }
-    .success-page-content p {
-        font-size: 1rem; /* Parágrafo menor em mobile */
+    to {
+        opacity: 1;
+    }
+}
+
+/* --- Responsividade do Carrossel --- */
+@media (max-width: 768px) {
+    .carousel-image {
+        height: 250px; /* Reduzindo a altura da imagem em tablets */
+    }
+    .carousel-caption {
+        padding: 1rem;
+        text-align: center;
+    }
+    .carousel-caption h3 {
+        font-size: 1.5rem;
+    }
+    .carousel-caption p {
+        font-size: 0.9rem;
+        max-width: 100%;
     }
 }
 
 @media (max-width: 480px) {
-    .success-page-content h2 {
-        font-size: 1.8rem; /* Título ainda menor em telas muito pequenas */
+    .carousel-image {
+        height: 180px; /* Altura ideal para smartphones */
     }
-    .success-page-content p {
-        font-size: 0.9rem; /* Parágrafo ainda menor */
+    .carousel-caption {
+        padding: 0.8rem;
+    }
+    .carousel-caption h3 {
+        font-size: 1.2rem;
+    }
+    .carousel-caption p {
+        font-size: 0.8rem;
+        display: none; /* Oculta o parágrafo em telas muito pequenas para dar mais espaço */
+    }
+}
+/* --- Estilo para a Imagem de Capa do Artigo --- */
+#article-featured-image {
+    width: 100%;
+    overflow: hidden; /* Garante que a imagem não vaze */
+}
+
+.article-cover-image {
+    width: 100%; /* Ocupa a largura total */
+    height: 350px; /* Altura fixa para telas grandes */
+    object-fit: cover; /* Garante que a imagem preencha o espaço sem distorcer */
+    display: block;
+}
+
+/* Responsividade para a imagem de capa */
+@media (max-width: 992px) {
+    .article-cover-image {
+        height: 250px; /* Altura menor em tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .article-cover-image {
+        height: 180px; /* Altura ideal para smartphones */
     }
 }
