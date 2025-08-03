@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraCoin | A Moeda Digital do Ecossistema Aura Technology</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <!-- Adicionando a biblioteca Chart.js para o gráfico -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+    <nav>
+        <div class="logo">
+            <h1>Aura Tech</h1>
+        </div>
+        <button class="menu-toggle" aria-label="Abrir Menu">
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+            <span class="hamburger"></span>
+        </button>
+        <ul class="nav-links">
+               <li><a href="index.html">Início</a></li>
+            <li><a href="artigos.html">Artigos</a></li>
+            <li><a href="ia.html">Nossa IA</a></li>
+            <li><a href="auracoin.html">AuraCoin</a></li>
+             <li><a href="auracoinn.html">AuraCoinSimulation</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
+            <li><a href="contato.html">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+    <main>
+        <section id="auracoin-hero" class="hero-subpage">
+            <div class="hero-content">
+                <h2>AuraCoin Simulation</h2>
+                <p>Integre-se a uma economia digital segura, transparente e focada em recompensar a inovação.</p>
+            </div>
+        </section>
+
+        <section id="auracoin-simulation" class="content-section">
+            <div class="container">
+                <h2 style="text-align: center;">Simulador de Atividade da AuraCoin</h2>
+                <div class="simulation-container">
+                    <!-- Visualização de Status -->
+                    <div class="status-grid">
+                        <div class="status-card">
+                            <h3>Preço AuraCoin (AURA)</h3>
+                            <p id="price-display" class="large-text">$ 0.00</p>
+                            <p id="price-change-display" class="small-text"></p>
+                        </div>
+                        <div class="status-card">
+                            <h3>Seu Saldo em AURA</h3>
+                            <p id="balance-display" class="large-text">0.00 AURA</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Gráfico de Preço -->
+                    <div class="price-chart-container bg-dark">
+                        <h3>Gráfico de Preço</h3>
+                        <canvas id="price-chart"></canvas>
+                    </div>
+
+                    <!-- Simulação de Compra e Venda -->
+                    <div class="trade-section bg-dark">
+                        <div class="trade-form">
+                            <div class="input-group">
+                                <label for="buy-amount">Comprar (em BRL):</label>
+                                <input type="number" id="buy-amount" placeholder="Ex: 100" value="100">
+                                <button id="buy-button" class="btn primary">Comprar</button>
+                            </div>
+                            <div class="input-group">
+                                <label for="sell-amount">Vender (em AURA):</label>
+                                <input type="number" id="sell-amount" placeholder="Ex: 50">
+                                <button id="sell-button" class="btn secondary">Vender</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Visualização da Blockchain -->
+                    <div class="blockchain-visualizer-container bg-dark">
+                        <h3>Visualização da Blockchain</h3>
+                        <canvas id="blockchain-canvas"></canvas>
+                        <p class="small-text">Simulação dos últimos blocos minerados</p>
+                    </div>
+
+                    <!-- Histórico de Transações -->
+                    <div class="transactions-log bg-dark">
+                        <h3>Últimas Transações</h3>
+                        <ul id="transactions-list">
+                            <!-- Transações serão adicionadas aqui via JavaScript -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Aura Technology. Todos os direitos reservados.</p>
+        
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/auracoin-simulacao.js"></script>
+</body>
+</html>
