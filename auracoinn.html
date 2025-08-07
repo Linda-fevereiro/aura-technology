@@ -6,7 +6,6 @@
     <title>AuraCoin | A Moeda Digital do Ecossistema Aura Technology</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
-    <!-- Adicionando a biblioteca Chart.js para o gráfico -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
@@ -21,7 +20,7 @@
             <span class="hamburger"></span>
         </button>
         <ul class="nav-links">
-               <li><a href="index.html">Início</a></li>
+                   <li><a href="index.html">Início</a></li>
             <li><a href="artigos.html">Artigos</a></li>
             <li><a href="ia.html">Nossa IA</a></li>
             <li><a href="auracoin.html">AuraCoin</a></li>
@@ -35,7 +34,7 @@
     <main>
         <section id="auracoin-hero" class="hero-subpage">
             <div class="hero-content">
-                <h2>AuraCoin Simulation</h2>
+                <h2>AuraCoin: A Moeda Digital do Ecossistema do Conhecimento</h2>
                 <p>Integre-se a uma economia digital segura, transparente e focada em recompensar a inovação.</p>
             </div>
         </section>
@@ -63,8 +62,25 @@
                         <canvas id="price-chart"></canvas>
                     </div>
 
+                    <!-- NOVO: Conversor de Moedas -->
+                    <div class="converter-section bg-dark">
+                        <h3>Conversor de Moedas</h3>
+                        <div class="converter-form">
+                            <div class="input-group">
+                                <label for="converter-brl">Valor em BRL:</label>
+                                <input type="number" id="converter-brl" placeholder="Ex: 100" value="100">
+                            </div>
+                            <div class="input-group">
+                                <label for="converter-aura">Resultado em AURA:</label>
+                                <input type="text" id="converter-aura" placeholder="0.00" readonly>
+                            </div>
+                            <button id="convert-button" class="btn primary">Converter</button>
+                        </div>
+                    </div>
+
                     <!-- Simulação de Compra e Venda -->
                     <div class="trade-section bg-dark">
+                        <h3>Negocie AuraCoin (simulação)</h3>
                         <div class="trade-form">
                             <div class="input-group">
                                 <label for="buy-amount">Comprar (em BRL):</label>
@@ -101,7 +117,7 @@
     <footer>
         <div class="container">
             <p>&copy; 2025 Aura Technology. Todos os direitos reservados.</p>
-        
+          
         </div>
     </footer>
 

@@ -12,8 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const ctxBlockchain = blockchainCanvas.getContext('2d');
     const priceChartCanvas = document.getElementById('price-chart');
 
+    // Elementos do novo conversor
+    const converterBRLInput = document.getElementById('converter-brl');
+    const converterAuraInput = document.getElementById('converter-aura');
+    const convertButton = document.getElementById('convert-button');
+
     // Estado da simulação
-    let balance = 1000.00; // Começa com um saldo inicial
+    let balance = 1000.00;
     let price = 0.87;
     let blocks = [];
     let transactions = [];
@@ -37,51 +42,28 @@ document.addEventListener('DOMContentLoaded', () => {
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            // Removendo o padding de layout e ajustando as escalas para um alinhamento melhor
             scales: {
-                x: {
-                    display: false,
-                },
+                x: { display: false },
                 y: {
-                    title: {
-                        display: true,
-                        text: 'Preço (USD)',
-                        color: 'white'
-                    },
-                    grid: {
-                        color: 'rgba(255, 255, 255, 0.1)'
-                    },
-                    ticks: {
-                        color: 'white'
-                    },
+                    title: { display: true, text: 'Preço (USD)', color: 'white' },
+                    grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                    ticks: { color: 'white' },
                     beginAtZero: false,
                 }
             },
-            layout: {
-                padding: {
-                    top: 10,
-                    bottom: 10
-                }
-            },
-            plugins: {
-                legend: {
-                    display: false,
-                }
-            }
+            layout: { padding: { top: 10, bottom: 10 } },
+            plugins: { legend: { display: false } }
         }
     };
 
     const priceChart = new Chart(priceChartCanvas, chartConfig);
 
     // --- Funções de Simulação ---
-
-    // Atualiza os valores na tela e o gráfico
     function updateDisplay() {
         priceDisplay.textContent = `$ ${price.toFixed(2)}`;
         balanceDisplay.textContent = `${balance.toFixed(2)} AURA`;
     }
 
-    // Simula a flutuação do preço e atualiza o gráfico
     function simulatePriceChange() {
         const fluctuation = (Math.random() - 0.5) * 0.1;
         const oldPrice = price;
@@ -101,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateDisplay();
         
-        // Adiciona o novo preço ao histórico e atualiza o gráfico
         priceHistory.push(price);
         if (priceHistory.length > 20) {
             priceHistory.shift();
@@ -111,18 +92,15 @@ document.addEventListener('DOMContentLoaded', () => {
         priceChart.update();
     }
 
-    // Adiciona uma transação simulada à lista
     function addSimulatedTransaction() {
         const sender = `AuraWallet-${Math.floor(Math.random() * 1000)}`;
         const receiver = `AuraWallet-${Math.floor(Math.random() * 1000)}`;
         const amount = parseFloat((Math.random() * 50 + 10).toFixed(2));
         const newTransaction = { id: Date.now(), type: 'simulated', from: sender, to: receiver, amount: amount, time: new Date() };
-        
         transactions = [newTransaction, ...transactions];
         renderTransactions();
     }
 
-    // Adiciona uma transação do usuário (compra/venda)
     function addUserTransaction(type, amount) {
         const transactionType = type === 'buy' ? 'user-buy' : 'user-sell';
         const newTransaction = {
@@ -137,12 +115,10 @@ document.addEventListener('DOMContentLoaded', () => {
         renderTransactions();
     }
 
-    // Renderiza a lista de transações
     function renderTransactions() {
         transactionsList.innerHTML = '';
         transactions.slice(0, 5).forEach(tx => {
             const li = document.createElement('li');
-            
             let amountText = '';
             let fromToText = '';
             
@@ -172,7 +148,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Desenha o blockchain no canvas
     function drawBlockchain() {
         blockchainCanvas.width = blockchainCanvas.offsetWidth;
         blockchainCanvas.height = 150;
@@ -208,7 +183,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Simula a mineração de blocos (automática)
     setInterval(() => {
         const newBlock = {
             id: blockIdCounter++,
@@ -246,6 +220,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // NOVO: Event listener para o conversor
+    convertButton.addEventListener('click', () => {
+        const brlValue = parseFloat(converterBRLInput.value);
+        if (brlValue > 0) {
+            const resultInAura = brlValue / price;
+            converterAuraInput.value = resultInAura.toFixed(2);
+        } else {
+            converterAuraInput.value = '0.00';
+        }
+    });
+
     // Inicia os intervalos de simulação
     setInterval(simulatePriceChange, 5000);
     setInterval(addSimulatedTransaction, 10000);
@@ -253,9 +238,8 @@ document.addEventListener('DOMContentLoaded', () => {
     // Chamada inicial para renderizar o estado inicial
     updateDisplay();
     drawBlockchain();
-    renderTransactions(); // Renderiza transações iniciais
-    simulatePriceChange(); // Roda uma vez para popular o gráfico
+    renderTransactions();
+    simulatePriceChange();
 
-    // Redesenha o canvas quando a janela é redimensionada
     window.addEventListener('resize', drawBlockchain);
 });
