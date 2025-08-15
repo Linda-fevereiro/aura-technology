@@ -273,10 +273,19 @@ nav {
     margin-right: auto;
 }
 
+/* --- Seção de Botões na Página Inicial --- */
 .cta-buttons {
     display: flex;
     justify-content: center;
     gap: 2rem;
+    margin-bottom: 1.5rem; /* Adiciona uma margem inferior */
+}
+
+.cta-buttons-secondary {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    
 }
 
 /* Hero Subpages (Para as outras páginas) */
@@ -640,8 +649,8 @@ footer {
     background-color: var(--color-black);
     text-align: center;
     padding: 2rem 0;
-    margin-top: 4rem;
-    border-top: 1px solid rgba(138, 43, 226, 0.3);
+    
+    border-top: 3px solid rgba(138, 43, 226, 0.3);
     color: var(--color-text-light);
 }
 
