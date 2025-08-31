@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Apresentação - Comunidade Acadêmica AuraTechology</title>
+  <style>
+    :root{
+      --bg:#0b0b0c; /* quase preto */
+      --white:#ffffff;
+      --purple:#8A2BE2; /* roxo vivo */
+      --purple-dark:#6A0DAD;
+      --blue:#1E90FF;
+      --muted:#d0d0d5;
+      --card-radius:14px;
+      --slide-width:1000px;
+      --slide-height:600px;
+      --gap:24px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg), #050506);color:var(--white);}
+    .present-wrap{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px;box-sizing:border-box}
+    .stage{width:var(--slide-width);height:var(--slide-height);background:linear-gradient(180deg,#07070a 0%, #0f0f12 100%);border-radius:18px;box-shadow:0 20px 50px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.02);position:relative;overflow:hidden}
+
+    /* slide content */
+    .slide{position:absolute;inset:0;padding:48px;box-sizing:border-box;display:none;}
+    .slide.active{display:block}
+
+    .brand{display:flex;align-items:center;gap:14px}
+    .brand .logo{width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--purple),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 20px rgba(138,43,226,0.18)}
+    .brand h1{font-size:20px;margin:0;color:var(--white);letter-spacing:0.2px}
+    .brand p{margin:0;font-size:12px;color:var(--muted)}
+
+    h2{color:var(--purple);margin:12px 0 8px;font-size:28px}
+    p.lead{color:var(--muted);font-size:16px;line-height:1.45}
+
+    .cols{display:flex;gap:28px;margin-top:18px}
+    .col{flex:1}
+
+    .bullet{background:rgba(255,255,255,0.02);padding:14px;border-radius:12px;margin-bottom:12px}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(138,43,226,0.12);color:var(--purple);font-weight:600;font-size:13px}
+
+    /* controls */
+    .controls{position:absolute;right:18px;bottom:18px;display:flex;gap:8px}
+    button.ctrl{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);padding:10px 12px;border-radius:10px;cursor:pointer}
+    button.ctrl.primary{background:linear-gradient(90deg,var(--purple),var(--blue));border:none;color:var(--white);box-shadow:0 10px 30px rgba(26,13,77,0.35)}
+
+    /* footer small */
+    .footer{position:absolute;left:28px;bottom:18px;color:var(--muted);font-size:12px}
+
+    /* responsive */
+    @media(max-width:1100px){:root{--slide-width:900px;--slide-height:540px}}
+    @media(max-width:900px){.stage{width:calc(100% - 40px);height:auto;padding-bottom:32px}.slide{position:relative} }
+
+    /* print-friendly - each slide fits a page */
+    @media print{
+      body{background:white;color:black}
+      .present-wrap{padding:0}
+      .stage{box-shadow:none;border-radius:0;width:100%;height:auto}
+      .controls,.footer{display:none}
+      .slide{display:block;page-break-after:always}
+      h2{color:#333}
+      .brand .logo{display:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="present-wrap">
+    <div class="stage" role="application" aria-label="Apresentação AuraTechology">
+
+      <section class="slide active" id="slide-1">
+        <div class="brand">
+          <div class="logo">AT</div>
+          <div>
+            <h1>AuraTechology — Comunidade Acadêmica</h1>
+            <p>Plataforma colaborativa para alunos universitários</p>
+          </div>
+        </div>
+        <h2>Projeto: Comunidade Acadêmica AuraTechology</h2>
+        <p class="lead">Plataforma desenvolvida pela AuraTechology para promover colaboração acadêmica entre estudantes: dúvidas, salas de estudo, biblioteca virtual e assistente de IA <strong>Aurora</strong>.</p>
+        <div class="cols" style="margin-top:28px">
+          <div class="col">
+            <div class="bullet"><strong>Objetivo:</strong> Facilitar o estudo colaborativo e o compartilhamento de materiais acadêmicos.</div>
+            <div class="bullet"><strong>Público:</strong> Estudantes de graduação e pós-graduação (verificados).</div>
+          </div>
+          <div class="col">
+            <div class="badge">Diferencial: IA Aurora</div>
+            <p style="margin-top:8px;color:var(--muted)">Respostas automáticas, resumos e assistência em tempo real dentro do feed, chat e salas.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-2">
+        <h2>Principais funcionalidades (MVP)</h2>
+        <div class="cols">
+          <div class="col">
+            <div class="bullet"><strong>Cadastro e verificação</strong> - e-mail institucional / upload de comprovante</div>
+            <div class="bullet"><strong>Feed / Fórum</strong> - perguntas por disciplina, respostas votadas, Aurora sugere respostas</div>
+            <div class="bullet"><strong>Salas virtuais</strong> - WebRTC, quadro branco, compartilhamento de tela</div>
+          </div>
+          <div class="col">
+            <div class="bullet"><strong>Biblioteca virtual</strong> - PDFs livres/licenciados, visualizador, integração com Aurora para resumos</div>
+            <div class="bullet"><strong>Chat</strong> - DM e grupos, assistente Aurora opcional</div>
+            <div class="bullet"><strong>Moderação</strong> - denúncias, moderação humana+automática</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-3">
+        <h2>Arquitetura técnica (alto nível)</h2>
+        <div class="cols">
+          <div class="col">
+            <div class="bullet"><strong>Frontend:</strong> React / Next.js (SSR opcional)</div>
+            <div class="bullet"><strong>Backend:</strong> Node.js (Express/Nest) ou Django REST</div>
+            <div class="bullet"><strong>DB:</strong> PostgreSQL + S3 para arquivos</div>
+          </div>
+          <div class="col">
+            <div class="bullet"><strong>Tempo real:</strong> WebSockets (chat) e WebRTC (vídeo)</div>
+            <div class="bullet"><strong>Busca:</strong> ElasticSearch + Aurora para relevância</div>
+            <div class="bullet"><strong>Infra:</strong> Docker, Kubernetes, CI/CD, CDN</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-4">
+        <h2>UX / Fluxo do usuário</h2>
+        <p class="lead">Cadastro com verificação → configuração do perfil → escolha de disciplinas → participação no feed e salas → uso da biblioteca e do chat com Aurora.</p>
+
+        <div style="display:flex;gap:16px;margin-top:18px">
+          <div style="flex:1;border-radius:12px;padding:12px;background:linear-gradient(90deg, rgba(138,43,226,0.12), rgba(30,144,255,0.06));">
+            <strong>Onboarding</strong>
+            <p style="color:var(--muted);margin:8px 0 0">Verificação por e-mail institucional ou documento.</p>
+          </div>
+          <div style="flex:1;border-radius:12px;padding:12px;background:rgba(255,255,255,0.02)">
+            <strong>Interação</strong>
+            <p style="color:var(--muted);margin:8px 0 0">Feed, Q&A, salas e chat com histórico pesquisável.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-5">
+        <h2>Diferencial: IA Aurora</h2>
+        <p class="lead">Aurora fornece respostas rápidas, resumos, explicações passo-a-passo e atua como participante virtual nas salas. Suporte à curadoria e melhoria contínua via feedback dos alunos.</p>
+
+        <div class="cols" style="margin-top:18px">
+          <div class="col">
+            <div class="bullet"><strong>Onde aparece:</strong> Feed (sugestões), Chat (assistente), Biblioteca (resumos), Salas (mentor virtual)</div>
+          </div>
+          <div class="col">
+            <div class="bullet"><strong>Medição:</strong> Relatórios de qualidade das respostas e feedbacks.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="slide" id="slide-6">
+        <h2>Próximos passos & Roadmap</h2>
+        <ol style="color:var(--muted);margin-top:12px">
+          <li>Validação do nome e domínio (auratechology.tech)</li>
+          <li>Pesquisa com estudantes e universidades (5-10 entrevistas)</li>
+          <li>Prototipagem e MVP: cadastro verificado, feed e biblioteca</li>
+          <li>Fase 2: Salas em tempo real, gamificação e SSO universitário</li>
+        </ol>
+      </section>
+
+      <section class="slide" id="slide-7">
+        <h2>Encerramento</h2>
+        <p class="lead">AuraTechology cria um espaço seguro e valioso para estudantes colaborarem. Com a Aurora, entregamos suporte escalável e didático para o aprendizado coletivo.</p>
+        <div style="margin-top:18px;color:var(--muted)">Contato: <strong>contato@auratechology.tech</strong></div>
+      </section>
+
+      <div class="controls">
+        <button class="ctrl" id="prev">◀ Anterior</button>
+        <button class="ctrl primary" id="next">Próximo ▶</button>
+      </div>
+
+      <div class="footer">Use ← → ou clique em próximo / anterior. Para salvar: Menu do navegador → Imprimir → Salvar como PDF.</div>
+
+    </div>
+  </div>
+
+  <script>
+    const slides = Array.from(document.querySelectorAll('.slide'))
+    let idx = 0
+    function show(i){
+      slides.forEach(s=>s.classList.remove('active'))
+      slides[i].classList.add('active')
+      idx = i
+      // update URL hash
+      history.replaceState(null,'', '#'+slides[i].id)
+    }
+    document.getElementById('next').addEventListener('click', ()=>show((idx+1)%slides.length))
+    document.getElementById('prev').addEventListener('click', ()=>show((idx-1+slides.length)%slides.length))
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='ArrowRight') show((idx+1)%slides.length)
+      if(e.key==='ArrowLeft') show((idx-1+slides.length)%slides.length)
+      if(e.key==='Home') show(0)
+      if(e.key==='End') show(slides.length-1)
+    })
+    // load from hash if present
+    if(location.hash){
+      const s = slides.findIndex(sl=>('#'+sl.id)===location.hash)
+      if(s>=0) show(s)
+    }
+  </script>
+</body>
+</html>
